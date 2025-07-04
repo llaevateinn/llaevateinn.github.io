@@ -1,0 +1,783 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     37101,        775]
+NotebookOptionsPosition[     33020,        704]
+NotebookOutlinePosition[     33661,        727]
+CellTagsIndexPosition[     33618,        724]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["F. Fass\[OGrave]. Universit\[AGrave] di Padova. Dynamical Systems \
+2023-2024.", "Text",
+ CellChangeTimes->{{3.5928024306884236`*^9, 3.592802452060461*^9}, {
+   3.5928028526691647`*^9, 3.592802865008786*^9}, {3.6381663655222025`*^9, 
+   3.6381663702922096`*^9}, {3.638971072539806*^9, 3.6389710733098073`*^9}, {
+   3.669611255785657*^9, 3.6696112715728846`*^9}, {3.6697258336300507`*^9, 
+   3.669725837982459*^9}, {3.6703947416412144`*^9, 3.670394756351235*^9}, {
+   3.6998484428189597`*^9, 3.69984845214789*^9}, {3.6999877414408016`*^9, 
+   3.6999877497229233`*^9}, {3.7304570267549653`*^9, 3.7304570811971517`*^9}, 
+   3.731410511562168*^9, {3.73341172030447*^9, 3.733411724137397*^9}, {
+   3.761563124676507*^9, 3.761563150589055*^9}, {3.7959249302854223`*^9, 
+   3.795924945672253*^9}, 3.7959332505748568`*^9, {3.825645884144169*^9, 
+   3.825645900736492*^9}, {3.8306716237392073`*^9, 3.8306716322933736`*^9}, {
+   3.8460596271155243`*^9, 3.846059673920816*^9}, {3.8461358902194557`*^9, 
+   3.8461359225603924`*^9}, {3.876984884148451*^9, 3.876984895425954*^9}, 
+   3.8769897965731425`*^9, {3.877009836566868*^9, 3.877009844815667*^9}, {
+   3.883663226987571*^9, 3.88366323111096*^9}, {3.913180375516616*^9, 
+   3.913180378326723*^9}},
+ FontSize->10,ExpressionUUID->"42b54eeb-3e00-40ff-bb35-ef726be60168"],
+
+Cell[CellGroupData[{
+
+Cell["Numerical work for the exam", "Title",
+ CellChangeTimes->{{3.674395213474644*^9, 3.6743952195746527`*^9}, 
+   3.674445248937503*^9, {3.6747018084982953`*^9, 3.674701889908409*^9}, {
+   3.6747019360184736`*^9, 3.6747019630285115`*^9}, {3.706613064796302*^9, 
+   3.7066130728225064`*^9}, {3.7367569333481874`*^9, 
+   3.7367569471144943`*^9}, {3.7370998442098866`*^9, 
+   3.7370998541012573`*^9}, {3.8516854418167286`*^9, 
+   3.8516854527444115`*^9}},ExpressionUUID->"8ff12202-21a2-46f9-b090-\
+07bbc4c565c6"],
+
+Cell[CellGroupData[{
+
+Cell["The three assignments", "Section",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.737104737337778*^9}, {3.7371048654883995`*^9, 3.7371048697492504`*^9}, {
+   3.7371049953793173`*^9, 3.7371052990560803`*^9}, {3.7371059140934916`*^9, 
+   3.7371059899412065`*^9}, {3.7371082669339027`*^9, 3.737108274938182*^9}, {
+   3.8475311424961643`*^9, 3.847531184337257*^9}, {3.847533291177741*^9, 
+   3.8475332942359486`*^9}, {3.851685363519909*^9, 3.8516853653365855`*^9}, {
+   3.851773175472907*^9, 
+   3.851773215543126*^9}},ExpressionUUID->"d0481438-b305-40b9-92d8-\
+33be3ec20ccd"],
+
+Cell[CellGroupData[{
+
+Cell["Assignments", "Subsection",
+ CellChangeTimes->{{3.7371083216759467`*^9, 3.7371083286358767`*^9}, {
+  3.7999343070842156`*^9, 3.799934312701232*^9}, {3.85168545837674*^9, 
+  3.8516854694964085`*^9}, {3.8516859443683376`*^9, 
+  3.8516859511517735`*^9}},ExpressionUUID->"1fca3ec4-068c-4162-9cfa-\
+49b9596ce2f9"],
+
+Cell["\<\
+There are three numerical assigments for the exam, which are simple \
+extensions of what done in class.\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737099980683075*^9}, {
+  3.7371043674329967`*^9, 3.7371044002409906`*^9}, {3.7371079667932434`*^9, 
+  3.73710799646463*^9}, {3.79993421595199*^9, 3.7999342187725067`*^9}, {
+  3.830672715843999*^9, 3.8306727209515743`*^9}, {3.8306728009135065`*^9, 
+  3.8306728022598515`*^9}, {3.8516859761676645`*^9, 3.8516860178645496`*^9}, {
+  3.851686147839407*^9, 
+  3.8516861495513515`*^9}},ExpressionUUID->"ea8894ad-098c-4bbb-bf3c-\
+aaf0a9d0b46e"],
+
+Cell[TextData[{
+ StyleBox["1.",
+  FontWeight->"Bold"],
+ " For the period shift map of the pendulum with oscillating suspension point \
+treated in Section 3.4.F of the notes (and studied in the lab classes) plot, \
+in the parameter space (\[Alpha],k):\n",
+ StyleBox["1.a ",
+  FontWeight->"Bold"],
+ " the first few instability tongues of the lower fixed point z_=(0,0)\n",
+ StyleBox["1.b",
+  FontWeight->"Bold"],
+ " the stability region (regions?) of the upper fixed point ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["z", "+"], TraditionalForm]],ExpressionUUID->
+  "b9e71c76-a7e3-4bbb-9cac-eda0eed68408"],
+ " = (\[Pi],0) \n \n",
+ StyleBox["2.",
+  FontWeight->"Bold"],
+ " For the pendulum with length changing periodically in time described in \
+Exercise 3.4.5 of the notes (pg. 146-147),\n      ",
+ StyleBox["2.a",
+  FontWeight->"Bold"],
+ " make a plot, in the parameter space (\[Alpha],k), of the ",
+ StyleBox["first",
+  FontSlant->"Italic"],
+ " (the one near \[Alpha]=0.5) instability tongue of the lower fixed point \
+z_=(0,0)\n      ",
+ StyleBox["2.b",
+  FontWeight->"Bold"],
+ " make some plots showing the change in the structure of the phase portrait \
+near z_=(0,0) at the entrance\n              into (and/or exit from) the \
+first instability tongue.\n      \n",
+ StyleBox["3.",
+  FontWeight->"Bold"],
+ " Phase portraits, stable and unstable manifolds \
+(\[OpenCurlyDoubleQuote]homoclinic tangle\[CloseCurlyDoubleQuote]) and \
+Lyapunov indicator for the forced pendulum \n                x\
+\[CloseCurlyQuote]\[CloseCurlyQuote]+sin(x)=k cos(t) \n      and their \
+dependence on the parameter k\[GreaterEqual]0."
+}], "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.7371049813049526`*^9}, {3.737105637496151*^9, 3.7371057622628527`*^9}, {
+   3.7993842200527096`*^9, 3.799384421640862*^9}, {3.7999317374142885`*^9, 
+   3.799931839046414*^9}, {3.7999342209087877`*^9, 3.799934276167957*^9}, {
+   3.7999882568785076`*^9, 3.7999882936681137`*^9}, {3.831103520184601*^9, 
+   3.831103539591861*^9}, {3.8516860234082375`*^9, 3.8516860652478724`*^9}, {
+   3.85168612333609*^9, 3.8516862534165263`*^9}, {3.8516862903191214`*^9, 
+   3.8516863920872293`*^9}, {3.851686471079391*^9, 3.851686564647456*^9}, {
+   3.851686677071161*^9, 3.851686733319077*^9}, {3.851687050775591*^9, 
+   3.8516870871432705`*^9}, {3.8516885321906223`*^9, 3.85168857687015*^9}, {
+   3.8517720761984253`*^9, 3.8517721452597857`*^9}, {3.8835788159689083`*^9, 
+   3.8835788571208577`*^9}, {3.883578890674277*^9, 3.8835791791185694`*^9}, {
+   3.8836488875492477`*^9, 3.883649101016657*^9}, {3.8836628883465023`*^9, 
+   3.8836628974266586`*^9}, {3.913181352439809*^9, 3.9131813760772285`*^9}, {
+   3.9131814426178308`*^9, 3.9131814553366647`*^9}, {3.9131814891665707`*^9, 
+   3.913181524907936*^9}},ExpressionUUID->"f421cc87-f195-4f65-9253-\
+34bcdd802346"],
+
+Cell["\<\
+Info on the assignments\[LongDash]particularly on assignement 2\[LongDash]are \
+given below.\
+\>", "Text",
+ CellChangeTimes->{{3.883579185366429*^9, 
+  3.8835792217299433`*^9}},ExpressionUUID->"06ccf895-8622-4bdb-b8ea-\
+1346d646c63b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Note on Assignment 1", "Subsection",
+ CellChangeTimes->{{3.7371083216759467`*^9, 3.7371083286358767`*^9}, {
+  3.7999343178863525`*^9, 3.7999343260040593`*^9}, {3.8516871052309265`*^9, 
+  3.8516871161514325`*^9}, {3.8835792327618985`*^9, 3.8835792355268526`*^9}, {
+  3.8835792890469284`*^9, 3.883579291312028*^9}, {3.8836491198488264`*^9, 
+  3.883649124692142*^9}},ExpressionUUID->"1c6ff347-32be-4216-9d1a-\
+8bb07a8252e2"],
+
+Cell["\<\
+Part 1.a has essentially already been made in class\[LongDash]just reorganize \
+in a clean way the results.
+You should try to produce evidence 
+  - of the existence of the tongues
+  - of the position of the tongues in the parameters plane (if there is an \
+estimate on their position, your results do confirm it?)
+  - of the structure of the tongues (if there are theoretical informations \
+available\[LongDash]even qualitative, such as cusp or angle\[LongDash]do
+     your results demonstrate them?)\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.7371049813049526`*^9}, {3.7371056422637033`*^9, 
+   3.7371056453918715`*^9}, {3.7371058089912786`*^9, 
+   3.7371058246606827`*^9}, {3.7371079991374464`*^9, 
+   3.7371080684613256`*^9}, {3.7371081093359623`*^9, 3.73710818186588*^9}, {
+   3.7993844325919476`*^9, 3.7993845514993677`*^9}, {3.799931874724405*^9, 
+   3.799931885208947*^9}, {3.799934289723718*^9, 3.799934290405826*^9}, {
+   3.79993435243377*^9, 3.799934356037119*^9}, {3.799988348015764*^9, 
+   3.799988433663613*^9}, {3.7999897316595325`*^9, 3.7999899391016674`*^9}, {
+   3.830673090644561*^9, 3.8306730910917015`*^9}, {3.8306732642674184`*^9, 
+   3.8306732659862933`*^9}, {3.8306736137492275`*^9, 
+   3.8306736200230045`*^9}, {3.830673691246992*^9, 3.830673709221615*^9}, {
+   3.8516871192157745`*^9, 3.851687166718852*^9}, {3.8516871969836493`*^9, 
+   3.851687530006927*^9}, {3.8516884287344017`*^9, 3.8516884573737764`*^9}, {
+   3.8516885053817277`*^9, 3.8516885082700415`*^9}, {3.851688597165805*^9, 
+   3.851688611958547*^9}, {3.8516886470457573`*^9, 3.8516886931106167`*^9}, {
+   3.8517721916949067`*^9, 3.8517722050038548`*^9}, {3.883579310978559*^9, 
+   3.883579336682476*^9}, {3.8836491276438546`*^9, 3.8836492008188677`*^9}, {
+   3.8836629389676323`*^9, 3.8836629553071504`*^9}, {3.9131815689158325`*^9, 
+   3.913181581491438*^9}},ExpressionUUID->"38c0dbf1-2f39-43dd-813a-\
+3bdaff526697"],
+
+Cell["\<\
+For 1.b, also described in class, adapt the code and produce a picture (or \
+more than one, if  you think it\[CloseCurlyQuote]s necessary) in a meangiful \
+region of the parameter space\
+\>", "Text",
+ CellChangeTimes->{{3.8516865442703905`*^9, 3.8516865442703905`*^9}, {
+  3.851688710486746*^9, 3.8516887585903196`*^9}, {3.8836492235573783`*^9, 
+  3.8836492776346483`*^9}, {3.883662972571937*^9, 3.883662981073985*^9}, {
+  3.913181748371952*^9, 
+  3.9131817553333654`*^9}},ExpressionUUID->"e1175c8d-cf26-48d1-9cef-\
+e2835e6018fd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Notes on Assignment 2", "Subsection",
+ CellChangeTimes->{{3.883549666075799*^9, 3.883549669933776*^9}, {
+  3.883579376099469*^9, 3.8835793885233293`*^9}, {3.8836492951582313`*^9, 
+  3.8836493000004005`*^9}},ExpressionUUID->"09a43ea3-e88e-417e-9099-\
+be7fae2324f6"],
+
+Cell[TextData[{
+ "The assignment refers to a pendulum whose length l(t) varies periodically \
+on time as\n           l(t) = ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["l", "0"], TraditionalForm]],ExpressionUUID->
+  "b8b7f7f1-fb82-4551-9ebc-e3093f4abf15"],
+ " + a cos(\[CapitalOmega]t)            "
+}], "Text",
+ CellChangeTimes->{{3.88304503454955*^9, 3.883045094074751*^9}, {
+  3.8835436975700607`*^9, 3.8835437434006944`*^9}, {3.883543857547557*^9, 
+  3.883543858031819*^9}, {3.8835760865552425`*^9, 3.883576132466158*^9}, {
+  3.8835772929882207`*^9, 3.8835772938317966`*^9}, {3.8835793999801145`*^9, 
+  3.8835794168048716`*^9}, {3.883649511816527*^9, 
+  3.8836495313126945`*^9}},ExpressionUUID->"d3ee04d3-0f4e-4a54-b7f8-\
+5a0b0b56f9ec"],
+
+Cell["Preliminarily to the numerical work:", "Text",
+ CellChangeTimes->{{3.8835794204915066`*^9, 
+  3.883579438752421*^9}},ExpressionUUID->"20cd0fbf-0fbc-4484-a1ed-\
+bb2b3c3ab71b"],
+
+Cell[TextData[{
+ "1. Verify that (using the notations as in Exercise 3.4.5 of the notes) the \
+Lagrangian is\n            L(\[Theta],\[Theta]\[CloseCurlyQuote],t) =  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"l", "(", "t", ")"}], "2"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"\[Theta]", "'"}], ")"}], "2"]}], TraditionalForm]],
+  ExpressionUUID->"c1dd9b7d-7cb6-491a-8ded-2401576803dd"],
+ " + g l(t) cos(\[Theta])"
+}], "Text",
+ CellChangeTimes->{{3.883545211288522*^9, 3.8835452897898846`*^9}, {
+  3.883576135512533*^9, 3.8835761684820814`*^9}, {3.8835762156771965`*^9, 
+  3.8835762474500885`*^9}},ExpressionUUID->"c1b383f1-140b-4dc3-91e1-\
+f734863a1a90"],
+
+Cell[TextData[{
+ "2. Verify that the equation of motion is\n           \[Theta]\
+\[CloseCurlyQuote]\[CloseCurlyQuote] + 2 ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{
+     RowBox[{"l", "'"}], 
+     RowBox[{"(", "t", ")"}]}], 
+    RowBox[{"l", "(", "t", ")"}]], TraditionalForm]],ExpressionUUID->
+  "af1d3747-5089-4961-99b2-cef7e1b4441f"],
+ "\[Theta]\[CloseCurlyQuote] + ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["g", 
+    RowBox[{"l", "(", "t", ")"}]], TraditionalForm]],ExpressionUUID->
+  "e456744b-598b-4c47-8fb3-9af8f94e58a8"],
+ "sin(\[Theta])=0\n     and that, after a rescaling of time and with\n        \
+      ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Phi]", 
+     RowBox[{"(", "t", ")"}]}], "=", 
+    RowBox[{"\[Theta]", "(", 
+     FractionBox["t", "\[CapitalOmega]"]}]}], TraditionalForm]],
+  ExpressionUUID->"7276e76a-cb74-4a36-8f86-d1a9283d6386"],
+ ")  ,   k = ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["a", 
+    SubscriptBox["l", "0"]], TraditionalForm]],ExpressionUUID->
+  "699e8b8e-b0eb-4643-bf37-ad60c5140974"],
+ "   ,   \[Alpha] = ",
+ Cell[BoxData[
+  FormBox[
+   FractionBox["\[Omega]", "\[CapitalOmega]"], TraditionalForm]],
+  ExpressionUUID->"fc41d2be-8eeb-44af-a71f-123b676e59e9"],
+ "  ,  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Omega]", "=", 
+    SqrtBox[
+     FractionBox["a", 
+      SubscriptBox["l", "0"]]]}], TraditionalForm]],ExpressionUUID->
+  "87c0f9f7-990f-474b-9806-d5ed3ca7f140"],
+ " ,\n     it becomes    \n    ",
+ StyleBox[" (*)    ",
+  FontSize->24],
+ StyleBox["\[Phi]\[CloseCurlyQuote]\[CloseCurlyQuote](t) - ",
+  FontSize->18],
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    RowBox[{"2", "k", " ", 
+     RowBox[{"sin", "(", "t", ")"}]}], 
+    RowBox[{"1", "+", " ", 
+     RowBox[{"k", " ", 
+      RowBox[{"cos", "(", "t", ")"}]}]}]], TraditionalForm]],
+  FontSize->24,ExpressionUUID->"b25d08cb-220b-4e92-8c08-01cfd2687c76"],
+ StyleBox["\[Phi]\[CloseCurlyQuote](t)",
+  FontSize->18],
+ StyleBox["  +  ",
+  FontSize->24],
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    SuperscriptBox["\[Alpha]", "2"], 
+    RowBox[{"1", "+", " ", 
+     RowBox[{"k", " ", 
+      RowBox[{"cos", "(", "t", ")"}]}]}]], TraditionalForm]],
+  FontSize->24,ExpressionUUID->"6ef3a084-4552-4859-b941-05209b65a4a9"],
+ "sin",
+ StyleBox["(\[Phi](t))",
+  FontSize->18],
+ StyleBox[" ",
+  FontSize->24],
+ StyleBox["= 0",
+  FontSize->18],
+ "\n      and is the Lagrange equation of the Lagrangian     \n              \
+L(\[Phi],\[Phi]\[CloseCurlyQuote],t) =  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"\[Lambda]", "(", "t", ")"}], "2"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"\[Phi]", "'"}], ")"}], "2"]}], TraditionalForm]],
+  ExpressionUUID->"83f8b085-d8fa-44a9-b659-1d53a5ae6140"],
+ " + ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[Alpha]", "2"], TraditionalForm]],ExpressionUUID->
+  "6b798385-bd09-47db-a044-ecbc1b406128"],
+ " \[Lambda](t) cos(\[Phi])\n      with   \[Lambda](t)=1+k cos(t).      "
+}], "Text",
+ CellChangeTimes->{{3.88304503454955*^9, 3.883045094074751*^9}, {
+  3.8835436975700607`*^9, 3.8835438271524982`*^9}, {3.883576236296461*^9, 
+  3.8835763643509417`*^9}, {3.8835765724586973`*^9, 3.883576732306596*^9}, {
+  3.883576893221362*^9, 3.8835769464283314`*^9}, {3.8835776828142624`*^9, 
+  3.8835776830799403`*^9}, {3.883649327413637*^9, 3.883649354078782*^9}, {
+  3.883663011787875*^9, 3.883663013558177*^9}, {3.9131822081542063`*^9, 
+  3.9131822199421186`*^9}},ExpressionUUID->"5a02dc52-80a7-49ea-b58e-\
+e7834ef46bbf"],
+
+Cell["\<\
+3. Using the argument in point C. of Section 3.4.F of the notes, show that \
+the period shift map of equation (*) preserves the area in its phase space (\
+\[Phi],\[Phi]\[CloseCurlyQuote]) (knowing that this is true is essential to \
+be able to do the spectral stability analysis in the same way as for the \
+pendulum with oscillating suspension point).\
+\>", "Text",
+ CellChangeTimes->{{3.8835763797843814`*^9, 3.8835763801912556`*^9}, {
+  3.8835776040649443`*^9, 3.883577710932843*^9}, {3.8836493649981775`*^9, 
+  3.88364948642164*^9}, {3.8836630432746954`*^9, 3.8836630614893723`*^9}, {
+  3.9131823114997797`*^9, 
+  3.913182333064704*^9}},ExpressionUUID->"5cc05d45-b6b5-4ed9-b01a-\
+9cb7e9a737a3"],
+
+Cell["\<\
+You don' t have to write down in your assigment the computations  for points \
+1-3 above, but be sure to have understood these facts.\
+\>", "Text",
+ CellChangeTimes->{{3.8835794504059362`*^9, 3.88357951235945*^9}, {
+  3.9131823643986535`*^9, 
+  3.9131823801466646`*^9}},ExpressionUUID->"bd470b54-5d06-451c-9695-\
+036e8882a5e3"],
+
+Cell["\<\
+To plot the first stability tongue and the pahse portraits, adapt the code \
+(written in class) for the pendulum with the oscillating suspension point.\
+\>", "Text",
+ CellChangeTimes->{{3.883649668346756*^9, 3.8836497317381625`*^9}, 
+   3.8836630760012364`*^9},ExpressionUUID->"88ac5ce1-6e2d-4a05-b488-\
+b3524b089a6b"],
+
+Cell[TextData[{
+ "If you decide to plot the phase portrait also at the",
+ StyleBox[" exit",
+  FontSlant->"Italic"],
+ " from the first tongue, namely close to its right border, you might find it \
+difficult to make the plot for (\[Alpha],k) ",
+ StyleBox["inside",
+  FontSlant->"Italic"],
+ " the tongue. To avoid the problem, try taking \[Alpha] ",
+ StyleBox["(very) small.",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.8836497335894566`*^9, 3.88364990910841*^9}, {
+  3.883663093447775*^9, 
+  3.8836631263973513`*^9}},ExpressionUUID->"c09e750d-ed5d-4255-b599-\
+137313208b99"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Notes on Assignment 3", "Subsection",
+ CellChangeTimes->{{3.7371083216759467`*^9, 3.7371083286358767`*^9}, {
+  3.7999343178863525`*^9, 3.7999343260040593`*^9}, {3.7999343710340147`*^9, 
+  3.7999343713890886`*^9}, {3.8516887972936106`*^9, 
+  3.851688801581741*^9}},ExpressionUUID->"0d5a1901-5201-4139-b478-\
+e2fcb4146d51"],
+
+Cell["\<\
+This assignment has been described in the last lectures of the course and \
+rests on the theory described there.\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.7371049813049526`*^9}, {3.7371056422637033`*^9, 
+   3.7371056453918715`*^9}, {3.7371057710710764`*^9, 3.737105883698694*^9}, {
+   3.7371060066657352`*^9, 3.737106202121522*^9}, {3.7371078407501802`*^9, 
+   3.737107959120267*^9}, {3.7371081961692696`*^9, 3.7371082610497284`*^9}, 
+   3.7371083159792757`*^9, {3.79938455814856*^9, 3.7993846177569413`*^9}, 
+   3.799934405568677*^9, {3.7999344451517725`*^9, 3.799934683589151*^9}, {
+   3.7999899475590434`*^9, 3.799989974735306*^9}, {3.8306736628518634`*^9, 
+   3.830673681664904*^9}, {3.8311036096700954`*^9, 3.831103699251193*^9}, {
+   3.8516888041497846`*^9, 3.8516888940374756`*^9}, {3.8516890866019864`*^9, 
+   3.8516894590328803`*^9}, {3.8516904058296824`*^9, 3.851690422607499*^9}, {
+   3.883579531537555*^9, 3.883579534637989*^9}, {3.883650044061479*^9, 
+   3.8836500708554516`*^9}, {3.8836501362552443`*^9, 
+   3.8836501409354362`*^9}, {3.9131824567974033`*^9, 
+   3.9131825151282783`*^9}},ExpressionUUID->"3cf5d2fc-36a3-4dae-8bdf-\
+fcb0a37cb6ee"],
+
+Cell["\<\
+The numerical analysis should aim at providing, in particular, indications on \
+the following questions:
+- Does the chaotic region increase with k? (Show this by numerically \
+constructing the phase portrait for differenet values of k).
+- Show (pieces of) the stable and unstable manifolds and their intersections
+- Can you detect some homocinic points?
+- Is there a relationship between the chaotic region and the homoclinic \
+tangle? 
+- Is there a relationship between the Lyapunov indicator of an orbit and the \
+fact that that the orbit belongs to either the regular or the chaotic regions?\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.7371049813049526`*^9}, {3.7371056422637033`*^9, 
+   3.7371056453918715`*^9}, {3.7371057710710764`*^9, 3.737105883698694*^9}, {
+   3.7371060066657352`*^9, 3.737106202121522*^9}, {3.7371078407501802`*^9, 
+   3.737107959120267*^9}, {3.7371081961692696`*^9, 3.7371082610497284`*^9}, 
+   3.7371083159792757`*^9, {3.79938455814856*^9, 3.7993846177569413`*^9}, 
+   3.799934405568677*^9, {3.7999344451517725`*^9, 3.799934683589151*^9}, {
+   3.7999899475590434`*^9, 3.799989974735306*^9}, {3.8306736628518634`*^9, 
+   3.830673681664904*^9}, {3.8311036096700954`*^9, 3.831103699251193*^9}, {
+   3.8516888041497846`*^9, 3.8516888940374756`*^9}, {3.8516890866019864`*^9, 
+   3.8516894590328803`*^9}, {3.8516904058296824`*^9, 3.851690425512138*^9}, {
+   3.851772227761017*^9, 3.8517722928565516`*^9}, {3.883650088742679*^9, 
+   3.8836501189621677`*^9}},ExpressionUUID->"66cfdb20-7193-440f-8f85-\
+3c84919c0c9e"],
+
+Cell["\<\
+If you like\[LongDash]but it is not mandatory\[LongDash]you may also focus on \
+the following questions:
+- Are there small regular regions (\[OpenCurlyDoubleQuote]stability islands\
+\[CloseCurlyDoubleQuote] or, for small k, \[OpenCurlyDoubleQuote]KAM tori\
+\[CloseCurlyDoubleQuote]) inside the chaotic region? Can you show at least \
+one of them?
+If you want to have an interpretative framework for this phenomenology see \
+\[OpenCurlyDoubleQuote]Pages from [Zehnder]\[CloseCurlyDoubleQuote] \
+(downloadable from Moodle) and/or pages  23-25 di [Ben-FMVO-II]).\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.7371049813049526`*^9}, {3.7371056422637033`*^9, 
+   3.7371056453918715`*^9}, {3.7371057710710764`*^9, 3.737105883698694*^9}, {
+   3.7371060066657352`*^9, 3.737106202121522*^9}, {3.7371078407501802`*^9, 
+   3.737107959120267*^9}, {3.7371081961692696`*^9, 3.7371082610497284`*^9}, 
+   3.7371083159792757`*^9, {3.79938455814856*^9, 3.7993846177569413`*^9}, 
+   3.799934405568677*^9, {3.7999344451517725`*^9, 3.799934683589151*^9}, {
+   3.7999899475590434`*^9, 3.799989974735306*^9}, {3.8306736628518634`*^9, 
+   3.830673681664904*^9}, {3.8311036096700954`*^9, 3.831103699251193*^9}, {
+   3.8516888041497846`*^9, 3.8516888940374756`*^9}, {3.8516890866019864`*^9, 
+   3.8516894590328803`*^9}, {3.851690411163144*^9, 3.85169049994905*^9}, {
+   3.8517723543070164`*^9, 3.8517723966061926`*^9}, {3.8517724410742598`*^9, 
+   3.8517725141098213`*^9}, {3.88365015443229*^9, 3.8836501855187426`*^9}, {
+   3.883663176412612*^9, 
+   3.8836631907213984`*^9}},ExpressionUUID->"e3c5e239-6885-46a3-a4ed-\
+96e95fcc9aa6"],
+
+Cell["\<\
+References:
+[Ben-FMVO-II] G. Benettin, Introduzione ai sistemi dinamici. Per Fisica V.O. \
+Capitolo II (http://www.math.unipd.it/ benettin/postscript-pdf/iperb.pdf)
+[Zehnder]  E. Zehnder, Lectures on Dynamical Systems (Hamiltonian Vector \
+Fields and Symplectic Capacities) (EMS, 2010)\
+\>", "Text",
+ CellChangeTimes->{{3.851690289624759*^9, 3.8516903892640715`*^9}, {
+  3.851772520682787*^9, 3.8517725772885294`*^9}, {3.8517727473476906`*^9, 
+  3.8517727478475423`*^9}, {3.851773232036034*^9, 
+  3.851773247070204*^9}},ExpressionUUID->"95eb1311-7d63-4a2d-88fd-\
+92754c597863"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Which preparation is needed to be able to do the numerical work?\
+\>", "Section",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.737104737337778*^9}, {3.7371048654883995`*^9, 3.7371048697492504`*^9}, {
+   3.7371049953793173`*^9, 3.7371052990560803`*^9}, {3.7371059140934916`*^9, 
+   3.7371059899412065`*^9}, {3.7371082669339027`*^9, 3.737108274938182*^9}, {
+   3.8475311424961643`*^9, 3.847531184337257*^9}, {3.847533291177741*^9, 
+   3.8475332942359486`*^9}, {3.851685363519909*^9, 3.8516853653365855`*^9}, {
+   3.851773175472907*^9, 3.851773215543126*^9}, {3.8517734450598183`*^9, 
+   3.8517734546000185`*^9}, {3.851773524929265*^9, 3.851773538842701*^9}, 
+   3.851773786497196*^9},ExpressionUUID->"c1cf5513-3621-4110-b218-\
+65d535327ba2"],
+
+Cell["\<\
+1. You should have re-done by yourself (going through the notebooks) all the \
+numerical work that has been done in the Lab classes.
+2. You should have read on the notes, or listened to in class, the theory \
+specific to the topics studied numerically.
+3. You should have a good knowledge of the theoretical part of the course.\
+\>", "Text",
+ CellChangeTimes->{{3.8517734587372847`*^9, 3.8517734986317368`*^9}, {
+  3.8517735409456873`*^9, 
+  3.8517738930609493`*^9}},ExpressionUUID->"ecbb0901-e971-41d2-beee-\
+095fbaba0024"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Instructions for the numerical work", "Section",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.737104737337778*^9}, {3.7371048654883995`*^9, 3.7371048697492504`*^9}, {
+   3.7371049953793173`*^9, 3.7371052990560803`*^9}, {3.7371059140934916`*^9, 
+   3.7371059899412065`*^9}, {3.7371082669339027`*^9, 3.737108274938182*^9}, {
+   3.8475311424961643`*^9, 3.847531184337257*^9}, {3.847533291177741*^9, 
+   3.8475332942359486`*^9}, {3.851685363519909*^9, 3.8516853653365855`*^9}, {
+   3.851773175472907*^9, 
+   3.8517731758889856`*^9}},ExpressionUUID->"50842e12-004f-4076-ac99-\
+bbd20db3f6e2"],
+
+Cell["\<\
+Here are some general instructions
+- on how to approach the numerical work for the exam, and
+- on how to prepare the notebooks containting it.\
+\>", "Text",
+ CellChangeTimes->{{3.8475310028638997`*^9, 3.84753101220044*^9}, {
+   3.847531042975148*^9, 3.8475311353041344`*^9}, {3.8475311955405545`*^9, 
+   3.847531208899928*^9}, {3.847533553706151*^9, 3.847533572502632*^9}, 
+   3.9131826594268384`*^9},ExpressionUUID->"0c376120-d1a6-452c-a7b2-\
+b2e927efbcfe"],
+
+Cell[TextData[{
+ "In the numerical work, you should always \[OpenCurlyDoubleQuote]",
+ StyleBox["see",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote] the theory.\nIn other words, the most important \
+thing is to understand and interpret the numerical results within a clear \
+theoretical framework.\nIt is not necessary to write in detail all the theory \
+(even though it is not forbidden and it is appreciated as long as it is clear \
+and pertinent) but you should always have it very clear in your mind.\nThe \
+images and text that you create should always illustrate a definite idea, or \
+answer a definite question, which is well clear to you. \nAlways ask yourself \
+what you want to say and then establish how to say it (e.g., with which \
+plot/text)."
+}], "Text",
+ CellChangeTimes->{{3.7371084736997843`*^9, 3.7371084959448185`*^9}, {
+  3.8475312158926706`*^9, 3.8475312416992126`*^9}, {3.847531422256309*^9, 
+  3.847531559198491*^9}, {3.8475335835491033`*^9, 3.847533615433027*^9}, {
+  3.847533691827573*^9, 
+  3.847533695364388*^9}},ExpressionUUID->"4c5a3d62-c05f-461b-9936-\
+6d045251c480"],
+
+Cell["\<\
+As a general rule, there is not a unique thing to say, and not a unique way \
+of saying it.
+What you say, and the way you say it, reflects your own \
+comprehension/understanding of the phenomenon, and of the subject matter.\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.737104737337778*^9}, {3.7371048654883995`*^9, 3.7371048697492504`*^9}, {
+   3.7371049953793173`*^9, 3.7371052990560803`*^9}, 3.7371059106275897`*^9, {
+   3.737108554320894*^9, 3.737108607351418*^9}, {3.799384683774181*^9, 
+   3.799384688450132*^9}, 3.7999885167075124`*^9, {3.8475315630073347`*^9, 
+   3.847531748769949*^9}, {3.8475336608807135`*^9, 
+   3.8475337093213263`*^9}},ExpressionUUID->"77bda308-d634-4a36-a16a-\
+e354e05892a5"],
+
+Cell[TextData[{
+ "From a communication perspective, please consider that, as a general rule, ",
+ StyleBox["too much",
+  FontSlant->"Italic"],
+ " information tends to hide the message you want to convey.\nFor instance, \
+if you must show a bifurcation of a system  which depends on a parameter, it \
+is likely useless to plot zilions of almost identical plots before and after \
+the  bifurcation. A few plots (e.g., one or two before, one at, and one or \
+two after the bifurcation) may likely explain the essence of the phenomenon \
+(or at least, your comprehension/understanding of it) and convey the message, \
+much more effectively, in a single glance."
+}], "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.737104737337778*^9}, {3.7371048654883995`*^9, 3.7371048697492504`*^9}, {
+   3.7371049953793173`*^9, 3.7371052990560803`*^9}, 3.7371059106275897`*^9, 
+   3.737108561807963*^9, {3.7371086208993206`*^9, 3.7371086213934565`*^9}, {
+   3.799384699403162*^9, 3.7993847260547695`*^9}, 3.7999885579003005`*^9, {
+   3.8311037473334885`*^9, 3.8311037482199636`*^9}, {3.8475317574756246`*^9, 
+   3.8475321586620855`*^9}, {3.8475321983530397`*^9, 3.847532236402545*^9}, {
+   3.847533717379557*^9, 
+   3.847533779251011*^9}},ExpressionUUID->"13de474e-e036-49a5-977c-\
+e470622e1876"],
+
+Cell["\<\
+If the reader/spectator must compare different cases, it is very useful if \
+you can format them so that they are visible all together on the screen.\
+\>", "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737100011281377*^9}, 
+   3.7371000799716167`*^9, {3.7371001267367134`*^9, 3.7371002631692286`*^9}, {
+   3.737104356031727*^9, 3.7371043649208946`*^9}, {3.7371044049106703`*^9, 
+   3.737104737337778*^9}, {3.7371048654883995`*^9, 3.7371048697492504`*^9}, {
+   3.7371049953793173`*^9, 3.7371052990560803`*^9}, 3.7371059106275897`*^9, 
+   3.737108561807963*^9, 3.7371086241568527`*^9, {3.799384732240444*^9, 
+   3.799384732771614*^9}, {3.847532249560227*^9, 3.847532254712986*^9}, {
+   3.8475328145300627`*^9, 
+   3.847532932120922*^9}},ExpressionUUID->"3f8ecc8c-666c-4036-a0fe-\
+9836f402d332"],
+
+Cell[TextData[{
+ "When creating a result, you will unavoidably need to make trials and \
+produce preliminary/intermediate results. As a general rule, it is useful to \
+show/leave them in the final notebook o",
+ StyleBox["nly ",
+  FontSlant->"Italic"],
+ "if they serve the purpose of conveying a certain message, even technical \
+(e.g., \[OpenCurlyDoubleQuote]in this way I can fill a gap in the stable \
+manifold\[CloseCurlyDoubleQuote], or \[OpenCurlyDoubleQuote]the comparison \
+between these two cases is interesting because \
+.....\[CloseCurlyDoubleQuote]). Otherwise, a single final picture might be \
+sufficient\[Dash]and actually preferable.\nBut of course, you should provide \
+enough information to make it possible to understand what you\
+\[CloseCurlyQuote]ve done, how you\[CloseCurlyQuote]ve done it, why you did \
+it, and what\[CloseCurlyQuote]s the interpretation you give of it."
+}], "Text",
+ CellChangeTimes->{{3.7370999543585157`*^9, 3.737099980683075*^9}, 
+   3.7371002659721355`*^9, {3.73710530041582*^9, 3.737105620878515*^9}, 
+   3.737108704781653*^9, {3.799384738973234*^9, 3.799384798851263*^9}, {
+   3.7999885888245983`*^9, 3.7999885942470703`*^9}, {3.847532937544199*^9, 
+   3.8475333861822414`*^9}, {3.8475337928235254`*^9, 3.847533809525593*^9}, 
+   3.847533865110319*^9, 
+   3.883656678409178*^9},ExpressionUUID->"da57a759-ca1c-4eec-acbf-\
+6eccd4607026"],
+
+Cell[TextData[StyleBox["If you have any doubt you may ask me. ",
+ FontSlant->"Italic"]], "Text",
+ CellChangeTimes->{{3.799384807509753*^9, 3.7993848286048536`*^9}, {
+  3.8475333891490917`*^9, 
+  3.8475334261016045`*^9}},ExpressionUUID->"e52dd7e8-949f-464c-aeb9-\
+7e53e57aedc7"],
+
+Cell["Note: the numerical work for the exam can be done in pairs.", "Text",
+ CellChangeTimes->{{3.7993848387944393`*^9, 3.7993848671304784`*^9}, {
+  3.8475334297741985`*^9, 3.847533504700427*^9}, {3.8475338839682493`*^9, 
+  3.8475338994771633`*^9}},ExpressionUUID->"bcb519f7-16e9-4464-bed9-\
+d5333ad47eca"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1197., 587.4},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{32000, 32000},
+PrintingOptions->{"Magnification"->1.,
+"PaperOrientation"->"Portrait",
+"PaperSize"->{611.9999999999999, 792.}},
+ShowGroupOpener->{"InsideFrame", "Inline"},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"50e8f218-d6fa-45e6-a001-3347280c32bf"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1315, 18, 34, "Text",ExpressionUUID->"42b54eeb-3e00-40ff-bb35-ef726be60168"],
+Cell[CellGroupData[{
+Cell[1898, 42, 511, 8, 120, "Title",ExpressionUUID->"8ff12202-21a2-46f9-b090-07bbc4c565c6"],
+Cell[CellGroupData[{
+Cell[2434, 54, 759, 11, 82, "Section",ExpressionUUID->"d0481438-b305-40b9-92d8-33be3ec20ccd"],
+Cell[CellGroupData[{
+Cell[3218, 69, 314, 5, 66, "Subsection",ExpressionUUID->"1fca3ec4-068c-4162-9cfa-49b9596ce2f9"],
+Cell[3535, 76, 610, 11, 42, "Text",ExpressionUUID->"ea8894ad-098c-4bbb-bf3c-aaf0a9d0b46e"],
+Cell[4148, 89, 3010, 59, 370, "Text",ExpressionUUID->"f421cc87-f195-4f65-9253-34bcdd802346"],
+Cell[7161, 150, 244, 6, 42, "Text",ExpressionUUID->"06ccf895-8622-4bdb-b8ea-1346d646c63b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7442, 161, 427, 6, 66, "Subsection",ExpressionUUID->"1c6ff347-32be-4216-9d1a-8bb07a8252e2"],
+Cell[7872, 169, 2115, 33, 178, "Text",ExpressionUUID->"38c0dbf1-2f39-43dd-813a-3bdaff526697"],
+Cell[9990, 204, 540, 10, 69, "Text",ExpressionUUID->"e1175c8d-cf26-48d1-9cef-e2835e6018fd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10567, 219, 270, 4, 66, "Subsection",ExpressionUUID->"09a43ea3-e88e-417e-9099-be7fae2324f6"],
+Cell[10840, 225, 740, 15, 69, "Text",ExpressionUUID->"d3ee04d3-0f4e-4a54-b7f8-5a0b0b56f9ec"],
+Cell[11583, 242, 180, 3, 42, "Text",ExpressionUUID->"20cd0fbf-0fbc-4484-a1ed-bb2b3c3ab71b"],
+Cell[11766, 247, 734, 18, 73, "Text",ExpressionUUID->"c1b383f1-140b-4dc3-91e1-f734863a1a90"],
+Cell[12503, 267, 3554, 105, 311, "Text",ExpressionUUID->"5a02dc52-80a7-49ea-b58e-e7834ef46bbf"],
+Cell[16060, 374, 708, 12, 101, "Text",ExpressionUUID->"5cc05d45-b6b5-4ed9-b01a-9cb7e9a737a3"],
+Cell[16771, 388, 337, 7, 72, "Text",ExpressionUUID->"bd470b54-5d06-451c-9695-036e8882a5e3"],
+Cell[17111, 397, 328, 6, 72, "Text",ExpressionUUID->"88ac5ce1-6e2d-4a05-b488-b3524b089a6b"],
+Cell[17442, 405, 586, 15, 72, "Text",ExpressionUUID->"c09e750d-ed5d-4255-b599-137313208b99"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18065, 425, 327, 5, 45, "Subsection",ExpressionUUID->"0d5a1901-5201-4139-b478-e2fcb4146d51"],
+Cell[18395, 432, 1368, 21, 42, "Text",ExpressionUUID->"3cf5d2fc-36a3-4dae-8bdf-fcb0a37cb6ee"],
+Cell[19766, 455, 1744, 27, 206, "Text",ExpressionUUID->"66cfdb20-7193-440f-8f85-3c84919c0c9e"],
+Cell[21513, 484, 1813, 28, 151, "Text",ExpressionUUID->"e3c5e239-6885-46a3-a4ed-96e95fcc9aa6"],
+Cell[23329, 514, 587, 11, 130, "Text",ExpressionUUID->"95eb1311-7d63-4a2d-88fd-92754c597863"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23965, 531, 932, 14, 82, "Section",ExpressionUUID->"c1cf5513-3621-4110-b218-65d535327ba2"],
+Cell[24900, 547, 534, 10, 96, "Text",ExpressionUUID->"ecbb0901-e971-41d2-beee-095fbaba0024"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25471, 562, 775, 11, 82, "Section",ExpressionUUID->"50842e12-004f-4076-ac99-bbd20db3f6e2"],
+Cell[26249, 575, 468, 9, 96, "Text",ExpressionUUID->"0c376120-d1a6-452c-a7b2-b2e927efbcfe"],
+Cell[26720, 586, 1102, 19, 178, "Text",ExpressionUUID->"4c5a3d62-c05f-461b-9936-6d045251c480"],
+Cell[27825, 607, 912, 15, 69, "Text",ExpressionUUID->"77bda308-d634-4a36-a16a-e354e05892a5"],
+Cell[28740, 624, 1465, 23, 178, "Text",ExpressionUUID->"13de474e-e036-49a5-977c-e470622e1876"],
+Cell[30208, 649, 810, 13, 69, "Text",ExpressionUUID->"3f8ecc8c-666c-4036-a0fe-9836f402d332"],
+Cell[31021, 664, 1382, 23, 178, "Text",ExpressionUUID->"da57a759-ca1c-4eec-acbf-6eccd4607026"],
+Cell[32406, 689, 277, 5, 42, "Text",ExpressionUUID->"e52dd7e8-949f-464c-aeb9-7e53e57aedc7"],
+Cell[32686, 696, 306, 4, 42, "Text",ExpressionUUID->"bcb519f7-16e9-4464-bed9-d5333ad47eca"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,18 @@
+# Project E - XUEYAN ZHANG
+
+set MONTH := Feb Mar Apr May June July Aug;
+
+param N := 
+	Feb 0
+	Mar 4
+	Apr 6
+	May 7
+	June 4
+	July 6
+	Aug 2;
+param cost_a := 100;
+param cost_d := 160;
+param cost_o := 200;
+param max_arrival := 3;
+param max_overtime := 0.25;
+param aug_end := 3;
