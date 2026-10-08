@@ -1,4 +1,4 @@
-Task 3: 3D Plotting, Finding Isocontours and Critical Points (MATLAB)
+Task: 3D Plotting, Finding Isocontours and Critical Points (MATLAB)
 
 
 Description: 
