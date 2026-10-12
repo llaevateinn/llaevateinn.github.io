@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yan Xue | Documents &amp; Projects</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --text: #263238;
+      --muted: #66737a;
+      --link: #176b87;
+      --line: #e4eaed;
+      --background: #f7f9fa;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 48px 20px;
+      background: var(--background);
+      color: var(--text);
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    main {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 40px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgb(30 50 60 / 6%);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .intro {
+      margin: 12px 0 32px;
+      color: var(--muted);
+    }
+
+    section + section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+    }
+
+    ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 3px;
+      transition: text-decoration-color 150ms ease;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration-color: currentColor;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 14px;
+      }
+
+      main {
+        padding: 26px 20px;
+        border-radius: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Yan Xue</h1>
+      <p class="intro">
+        Former name: Xueyan Zhang. I use this page to share documents and
+        project materials online, so visitors can view them without always
+        downloading PDF files.
+      </p>
+    </header>
+
+    <section aria-labelledby="documents-heading">
+      <h2 id="documents-heading">Documents</h2>
+      <ul>
+        <li>
+          CV:
+          <a href="docs/CV_EN.pdf">English</a>
+          ·
+          <a href="docs/CV_CN.pdf">Chinese</a>
+        </li>
+        <li>
+          Master’s thesis:
+          <a href="docs/THESIS_ZHANG.pdf">thesis</a>
+          ·
+          <a href="docs/thesis_summary.pdf">summary</a>
+        </li>
+        <li>
+          Seminar:
+          <a href="docs/seminar/Seminar%20Description.pdf">information</a>
+          ·
+          <a href="docs/seminar/Seminar%20Notes.pdf">notes</a>
+        </li>
+        <li>
+          An Introductory Study on Well-Posedness for Moreau’s Sweeping
+          Process:
+          <a href="docs/MSP.pdf">notes</a>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/llaevateinn/llaevateinn.github.io/tree/main/projects/ScientificVisualization%26TopologicalDataAnalysis">
+            Scientific Visualization &amp; Topological Data Analysis
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/llaevateinn/llaevateinn.github.io/blob/main/projects/NumericalSolution%263DVisualizationOfTheLaplaceEquation/Task%201.ipynb">
+            Numerical Solution &amp; 3D Visualization of the Laplace Equation
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/llaevateinn/MarkovChain/blob/main/Stochastic%20Modeling%20of%20a%20Structured%20Markov%20Chain.ipynb">
+            Stochastic Modeling of a Structured Markov Chain
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wolframcloud.com/obj/github-cloud/commits/ab8ca97352a88cfd2b4571aa90488f88ad6c1ff1">
+            Research of Pendulums with Specific Characteristics
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/llaevateinn/CrimeAnalysisWashingtonDC/blob/main/DC%20Crime%20-%20EN.ipynb">
+            Crime Analysis in Washington, D.C.
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/llaevateinn/interpolation/blob/main/pro2_11811736.m">
+            Interpolation and Error Analysis
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
